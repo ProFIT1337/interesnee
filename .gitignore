@@ -16,3 +16,5 @@ media/*
 !*media
 
 log/debug.log
+
+setenv.sh
