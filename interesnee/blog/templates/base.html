@@ -15,7 +15,6 @@
     <title>Сохрани свои впечатления!</title>
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'base' %}">Впечатления!</a>
@@ -35,44 +34,70 @@
     </div>
 </nav>
 
-{% if impressions %}
-    <div class="container-fluid px-md-0">
-        <div class="row no-gutters">
-            {% for impression in impressions %}
+<br>
 
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ impression.title }}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">{{ impression.latitude }} | {{ impression.longitude }}</h6>
-                        <p class="card-text">{{ impression.text }}</p>
+<div class="wrapper" style="margin-right: 20px; margin-left: 20px;">
+
+
+    {% if request.user.is_authenticated %}
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Добавить новое впечатление!
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Создайте впечатление!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-container">
+                            <form action="{% url 'create_impression' %}" method="POST">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+                                <br>
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-
-            {% endfor %}
+            </div>
         </div>
-    </div>
-{% else %}
-    <p>У вас пока нет впечатлений, добавьте же их!</p>
-{% endif %}
 
+        <br>
+        <br>
 
-{% if request.user.is_authenticated %}
-    <div class="form-container">
-        <form action="{% url 'create_impression' %}" method="POST">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <br>
-            <button type="submit" class="btn btn-primary">Сохранить</button>
-        </form>
-    </div>
+        {% if impressions %}
+            <div class="container-fluid px-md-0">
+                <div class="row no-gutters">
+                    {% for impression in impressions %}
 
-{% else %}
-    <p class="text-md-center">Добро пожаловать!</p>
-    <p class="text-md-center">Наш сервис позваляет сохранять свои впечатления о посещённыйх местах.</p>
-    <p class="text-md-center">Для использования пожалуйста авторизуйтесь через VK или Facebook.</p>
-    <p class="text-md-center">Для этого используйте кнопки выше.</p>
-{% endif %}
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ impression.title }}</h5>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ impression.latitude }}
+                                    | {{ impression.longitude }}</h6>
+                                <p class="card-text">{{ impression.text }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <p>У вас пока нет впечатлений, добавьте же их!</p>
+        {% endif %}
 
+    {% else %}
+        <p class="text-md-center">Добро пожаловать!</p>
+        <p class="text-md-center">Наш сервис позваляет сохранять свои впечатления о посещённыйх местах.</p>
+        <p class="text-md-center">Для использования пожалуйста авторизуйтесь через VK или Facebook.</p>
+        <p class="text-md-center">Для этого используйте кнопки выше.</p>
+    {% endif %}
+
+</div>
 
 <script type="text/javascript" src="{% static 'admin/js/vendor/jquery/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'admin/js/jquery.init.js' %}"></script>

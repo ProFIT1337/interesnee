@@ -13,7 +13,10 @@ class BaseView(View):
 
     def get(self, request, *args, **kwargs):
         form = ImpressionForm
-        impressions = Impression.objects.filter(owner=request.user)
+        if request.user.is_authenticated:
+            impressions = Impression.objects.filter(owner=request.user)
+        else:
+            impressions = False
         context = {
             'form': form,
             'maps_api_key': settings.GOOGLE_MAPS_API_KEY,
