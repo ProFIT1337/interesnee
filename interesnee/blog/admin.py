@@ -8,12 +8,12 @@ from blog.models import Impression
 class ImpressionAdmin(admin.ModelAdmin):
     """Модель администрирования модели Impression."""
 
-    list_display = ('title', 'text', 'latitude', 'longitude')
+    list_display = ('owner', 'title', 'text', 'latitude', 'longitude')
     search_fields = ('title',)
 
     fieldsets = (
         (None, {
-            'fields': ('title', 'text', 'latitude', 'longitude'),
+            'fields': ('owner', 'title', 'text', 'latitude', 'longitude'),
         }),
     )
 
