@@ -104,12 +104,11 @@ SOCIALACCOUNT_PROVIDERS = {
         ],
     },
     'facebook':
-        {'SCOPE': ['email', 'public_profile'],
+        {'SCOPE': ['public_profile'],
          'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
          'METHOD': 'js_sdk',
          'FIELDS': [
              'id',
-             'email',
              'name',
              'first_name',
              'last_name',

@@ -5,5 +5,5 @@ from .views import BaseView
 
 urlpatterns = [
     path('', BaseView.as_view(), name='base'),
-    path('log/', LogoutView.as_view(next_page='/'), name='logout'),
+    path('logout', LogoutView.as_view(next_page='/'), name='logout'),
 ]
