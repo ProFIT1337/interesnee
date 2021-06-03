@@ -21,7 +21,7 @@ class BaseView(View):
             'form': form,
             'maps_api_key': settings.GOOGLE_MAPS_API_KEY,
             'impressions': impressions,
-                   }
+        }
         return render(request, 'base.html', context)
 
 
@@ -29,6 +29,7 @@ class CreateImpressionView(View):
     """Контроллер для создания нового впечатления."""
 
     def post(self, request, *args, **kwargs):
+        """При получении POST запроса проверяем валидность формы и сохраняем её."""
         form = ImpressionForm(request.POST or None)
         if form.is_valid():
             impression = form.save(commit=False)

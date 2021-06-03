@@ -42,7 +42,7 @@
     {% if request.user.is_authenticated %}
 
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Добавить новое впечатление!
+            Добавить воспоминание
         </button>
 
         <!-- Modal -->
@@ -87,7 +87,7 @@
                 </div>
             </div>
         {% else %}
-            <p>У вас пока нет впечатлений, добавьте же их!</p>
+            <p>У вас нет ни одного воспоминания</p>
         {% endif %}
 
     {% else %}

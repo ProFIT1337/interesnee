@@ -1,3 +1,4 @@
+import debug_toolbar
 from allauth.socialaccount.providers.facebook import views
 from allauth.socialaccount.providers.facebook.provider import FacebookProvider
 from allauth.socialaccount.providers.oauth2.urls import default_urlpatterns
@@ -9,6 +10,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path
 
 urlpatterns = [
+    path('__debug__/', include(debug_toolbar.urls)),
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
 ]

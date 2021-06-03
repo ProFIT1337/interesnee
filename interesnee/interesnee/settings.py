@@ -104,17 +104,17 @@ SOCIALACCOUNT_PROVIDERS = {
             'sex',
         ],
     },
-    'facebook':
-        {'SCOPE': ['public_profile'],
-         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-         'METHOD': 'js_sdk',
-         'FIELDS': [
-             'id',
-             'name',
-             'first_name',
-             'last_name',
-         ],
-         },
+    'facebook': {
+        'SCOPE': ['public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'METHOD': 'js_sdk',
+        'FIELDS': [
+            'id',
+            'name',
+            'first_name',
+            'last_name',
+        ],
+    },
 }
 
 ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
