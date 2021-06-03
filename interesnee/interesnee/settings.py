@@ -7,7 +7,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='hjguighjvbjk')
 
 DEBUG = int(os.environ.get('DEBUG', default=1))
 
-ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='127.0.0.1').split(' ')
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', default='127.0.0.1 localhost').split(' ')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -22,6 +22,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.vk',
+    'allauth.socialaccount.providers.facebook',
+    'django_extensions',
 
     'blog',
 ]
@@ -86,6 +88,36 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+SOCIALACCOUNT_PROVIDERS = {
+    'vk': {
+        'SCOPE': [
+            'id',
+            'first_name',
+            'last_name',
+            'photo_medium',
+            'sex',
+        ],
+        'FIELDS': [
+            'photo_medium',
+            'sex',
+        ],
+    },
+    'facebook':
+        {'SCOPE': ['email', 'public_profile'],
+         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+         'METHOD': 'js_sdk',
+         'FIELDS': [
+             'id',
+             'email',
+             'name',
+             'first_name',
+             'last_name',
+         ],
+         },
+}
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 
 LANGUAGE_CODE = 'en-us'
 
