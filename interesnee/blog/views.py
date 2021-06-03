@@ -1,9 +1,11 @@
+from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 from django.views import View
 
 from blog.forms import ImpressionForm
+from blog.models import Impression
 
 
 class BaseView(View):
@@ -11,7 +13,12 @@ class BaseView(View):
 
     def get(self, request, *args, **kwargs):
         form = ImpressionForm
-        context = {'form': form}
+        impressions = Impression.objects.filter(owner=request.user)
+        context = {
+            'form': form,
+            'maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+            'impressions': impressions,
+                   }
         return render(request, 'base.html', context)
 
 

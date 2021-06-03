@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.vk',
     'allauth.socialaccount.providers.facebook',
     'django_extensions',
+    'crispy_forms',
 
     'blog',
 ]
@@ -133,9 +134,13 @@ LOGIN_REDIRECT_URL = '/'
 STATIC_URL = '/staticfiles/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SITE_ID = 1
 
-
 GOOGLE_MAPS_API_KEY = 'AIzaSyBJxy19QeENf3g8hbtTZMxOPo4psu3dR9E'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
