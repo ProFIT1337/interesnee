@@ -18,6 +18,8 @@ class ImpressionAdmin(admin.ModelAdmin):
     )
 
     class Media:
+        """Добавляет карту при добавлении и редактировании воспоминании в панели администрирования."""
+
         if hasattr(settings, 'GOOGLE_MAPS_API_KEY') and settings.GOOGLE_MAPS_API_KEY:
             css = {
                 'all': ('css/admin/location_picker.css',),

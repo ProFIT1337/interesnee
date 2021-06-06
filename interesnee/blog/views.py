@@ -12,6 +12,7 @@ class BaseView(View):
     """Контроллер для главной страницы."""
 
     def get(self, request, *args, **kwargs):
+        """Рендерит главную страницу при GET запросе."""
         form = ImpressionForm
         if request.user.is_authenticated:
             impressions = Impression.objects.filter(owner=request.user)
