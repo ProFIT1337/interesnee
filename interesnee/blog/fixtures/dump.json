@@ -1,0 +1,38 @@
+[
+  {
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+      "domain": "127.0.0.1:8000",
+      "name": "127.0.0.1:8000"
+    }
+  },
+  {
+    "model": "socialaccount.socialapp",
+    "pk": 1,
+    "fields": {
+      "provider": "vk",
+      "name": "vk",
+      "client_id": "7870467",
+      "secret": "jI8QjVi4As7kLKtF63WS",
+      "key": "57c3201557c3201557c320154557bb3816557c357c320153774c828603664144b6ef141",
+      "sites": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "socialaccount.socialapp",
+    "pk": 2,
+    "fields": {
+      "provider": "facebook",
+      "name": "fb",
+      "client_id": "322932185955724",
+      "secret": "cd2acc53dc9b424a84cf9dd8e1196ee6",
+      "key": "",
+      "sites": [
+        1
+      ]
+    }
+  }
+]
