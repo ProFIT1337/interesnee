@@ -18,7 +18,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'base' %}">Впечатления!</a>
+        <a class="navbar-brand" href="{% url 'base' %}">Воспоминания!</a>
 
         {% if request.user.is_authenticated %}
             {{ user.first_name }}
