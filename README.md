@@ -25,3 +25,5 @@ localhost:8000
 ```
   python manage.py test .
 ```
+
+[![Coverage Status](https://coveralls.io/repos/github/ProFIT1337/interesnee/badge.svg?branch=main)](https://coveralls.io/github/ProFIT1337/interesnee?branch=main)
