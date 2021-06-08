@@ -12,5 +12,5 @@ class Impression(models.Model):
     longitude = models.DecimalField(verbose_name='Долгота', max_digits=9, decimal_places=6, null=True, blank=True)
 
     def __str__(self):
-        """Возвращает строковое представление с названием воспоминания"""
+        """Возвращает строковое представление с названием воспоминания."""
         return self.title

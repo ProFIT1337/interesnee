@@ -79,13 +79,13 @@ class ImpressionModelTest(TestCase):
         """Проверяет, что атрибут null поля latitude - True."""
         impression = Impression.objects.get(pk=1)
         received_value = impression._meta.get_field('latitude').null
-        self.assertEquals(received_value, True)
+        self.assertTrue(received_value)
 
     def test_latitude_blank(self):
         """Проверяет, что атрибут blank поля latitude - True."""
         impression = Impression.objects.get(pk=1)
         received_value = impression._meta.get_field('latitude').blank
-        self.assertEquals(received_value, True)
+        self.assertTrue(received_value)
 
     def test_longitude_label(self):
         """Проверяет, что verbose_name поля longitude - 'Долгота'."""
@@ -103,10 +103,10 @@ class ImpressionModelTest(TestCase):
         """Проверяет, что атрибут null поля longitude - True."""
         impression = Impression.objects.get(pk=1)
         received_value = impression._meta.get_field('longitude').null
-        self.assertEquals(received_value, True)
+        self.assertTrue(received_value)
 
     def test_longitude_blank(self):
         """Проверяет, что атрибут blank поля longitude - True."""
         impression = Impression.objects.get(pk=1)
         received_value = impression._meta.get_field('longitude').blank
-        self.assertEquals(received_value, True)
+        self.assertTrue(received_value)
